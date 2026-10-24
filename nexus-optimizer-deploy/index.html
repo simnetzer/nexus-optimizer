@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexus Optimizer — More performance. Less bloat.</title>
+<meta name="description" content="Nexus Optimizer is a local Windows tweaking panel: 152 tweaks, 6 profiles, 28 services, cleanup, backups and 18 tools. No cloud, no telemetry, no account.">
+<meta name="theme-color" content="#080b10">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Nexus Optimizer — More performance. Less bloat.">
+<meta property="og:description" content="152 tweaks, 6 profiles and real backups — a complete local Windows tweaking panel. Free download for Windows 10 and 11.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nexus Optimizer — More performance. Less bloat.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nexus Optimizer — More performance. Less bloat.">
+<meta name="twitter:description" content="152 tweaks, 6 profiles and real backups — a complete local Windows tweaking panel.">
+<meta name="twitter:image" content="assets/og.png">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 5.2 13.4h5.9l-1 8.1 7.7-10.9h-5.9l1.1-8.1Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 19 6v5.2c0 4.3-2.9 7.3-7 8.9-4.1-1.6-7-4.6-7-8.9V6l7-2.8Z"/><path d="m9 11.8 2.1 2.1 3.9-4.1"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4.2 18.2a8.8 8.8 0 1 1 15.6 0"/><path d="M12 13.8 16.2 8.9"/><circle cx="12" cy="14.5" r="1.4"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 8h4.5M13.5 8H20M4 16h6.5M15.5 16H20"/><circle cx="11" cy="8" r="2.3"/><circle cx="13" cy="16" r="2.3"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.5 3.5 13.3 9l5.5 1.8-5.5 1.8-1.8 5.5-1.8-5.5L4.2 10.8 9.7 9l1.8-5.5Z"/><path d="M18.5 15.5v4M16.5 17.5h4"/></symbol>
+  <symbol id="i-gamepad" viewBox="0 0 24 24"><rect x="2.8" y="7.6" width="18.4" height="9.6" rx="4.4"/><path d="M8 10.7v3.4M6.3 12.4h3.4"/><circle cx="16.2" cy="11.6" r="0.9" fill="currentColor" stroke="none"/><circle cx="18.1" cy="14.2" r="0.9" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h9.5a6.5 6.5 0 0 1 0 13H9"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h15"/><path d="m13.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.4 4.6 4.6L19 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 8h17M3.5 16h17"/></symbol>
+  <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3.5 5.6 11 4.5v7.1H3.5V5.6Zm0 12.8L11 19.5v-7.1H3.5v6Zm8.6-14L20.5 3v8.6h-8.4V4.4Zm0 15.3L20.5 21v-8.6h-8.4v7.7Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.4 2.4 3.7 5.4 3.7 8.6s-1.3 6.2-3.7 8.6c-2.4-2.4-3.7-5.4-3.7-8.6S9.6 5.8 12 3.4Z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11"/><path d="m7.4 10.2 4.6 4.6 4.6-4.6"/><path d="M4.5 20h15"/></symbol>
+</svg>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Nexus Optimizer — home">
+      <img class="brand-mark-img" src="assets/nexus-icon.png" alt="" width="28" height="28">
+      <span class="brand-text">
+        <span class="brand-name">NEXUS</span>
+        <span class="brand-sub">OPTIMIZER</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#modules">Modules</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#safety">Safety</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost btn-sm" href="/login">Login</a>
+      <a class="btn btn-primary btn-sm" href="#download">
+        <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+        Download
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#features">Features</a>
+    <a href="#modules">Modules</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#safety">Safety</a>
+    <a href="#faq">FAQ</a>
+    <a href="/login">Login</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-primary" href="#download">
+      <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+      Download Nexus Optimizer
+    </a>
+    <p>Windows 10 &amp; 11 · v1.0.0 · 100% local</p>
+  </div>
+</div>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="badge">
+        <span class="badge-dot"></span>
+        Windows 10 &amp; 11 · v1.0.0 · 100% local
+      </p>
+      <h1>More performance.<br><em>Less bloat.</em></h1>
+      <p class="hero-sub">Nexus Optimizer is a complete, local tweaking panel for Windows: 152 tweaks, six curated profiles, 28 services, cleanup and 18 tools — with a real backup before every change.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="downloads/NexusOptimizer-Setup.exe" download>
+          <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+          Download for Windows
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#modules">
+          See what's inside
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+      <p class="hero-meta">
+        <svg class="icon icon-brand" aria-hidden="true"><use href="#i-windows"></use></svg>
+        <span>Windows 10 &amp; 11</span>
+        <span class="sep"></span>
+        <span class="hero-meta-net">.NET Framework 4.8</span>
+        <span class="sep"></span>
+        <span>Installer 1.3 MB</span>
+        <span class="sep"></span>
+        <span>License required</span>
+      </p>
+
+      <div class="app-frame">
+        <figure class="hero-shot-frame">
+          <img class="hero-shot" src="assets/screenshots/dashboard.png" alt="Nexus Optimizer dashboard showing optimization score, live CPU and RAM, system profile and recommended tweaks" width="1440" height="900" fetchpriority="high">
+          <figcaption class="shot-badge"><span class="dot-live"></span> 152 tweaks · 100% local</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Nexus Optimizer in numbers">
+    <div class="container stats-grid">
+      <div class="stat">
+        <span class="stat-value">152</span>
+        <span class="stat-label">Tweaks &amp; actions</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">6</span>
+        <span class="stat-label">Curated profiles</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">28</span>
+        <span class="stat-label">Services managed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">18</span>
+        <span class="stat-label">Windows tools</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span></span>Features</p>
+        <h2>Everything Windows<br>won't do on its own.</h2>
+        <p class="section-sub">Not ten billion features — over 200 functions in one dark, quiet interface. Every change is reversible.</p>
+      </div>
+
+      <div class="bento">
+        <article class="card card-wide" data-reveal>
+          <div class="card-copy">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg></span>
+            <h3>152 tweaks. Nine categories.</h3>
+            <p>Performance, privacy, gaming, network, debloat, appearance, system, security and Windows Update — plus 41 actions and app removals.</p>
+            <ul class="mini-list">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Exact state detection</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Risk levels for critical changes</li>
+            </ul>
+          </div>
+          <div class="profile-visual" aria-hidden="true">
+            <p class="visual-label">Inside the panel</p>
+            <div class="profile-chips">
+              <span class="chip is-active">Performance</span>
+              <span class="chip">Privacy</span>
+              <span class="chip">Gaming</span>
+              <span class="chip">Network</span>
+              <span class="chip">Debloat</span>
+              <span class="chip">+4 more</span>
+            </div>
+            <div class="progress-block">
+              <div class="progress-top"><span>Recommended optimizations</span><span>10 / 55</span></div>
+              <div class="progress-track"><span style="width:18%"></span></div>
+              <div class="progress-foot"><span class="dot-live"></span>Live from the dashboard</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-reveal style="--d:.06s">
+          <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-undo"></use></svg></span>
+          <h3>Real backups</h3>
+          <p>Every successful change stores the previous registry or service state as JSON. Restore one change or all of them in a click.</p>
+        </article>
+
+        <article class="card" data-reveal style="--d:.12s">
+          <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"></use></svg></span>
+          <h3>Six profiles</h3>
+          <p>Clean &amp; Fast, Gaming Focus, Privacy Shield, Lean Machine, Maximum Performance and Security Hardening — or build your own.</p>
+        </article>
+
+        <article class="card" data-reveal style="--d:.18s">
+          <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-gauge"></use></svg></span>
+          <h3>Services &amp; startup</h3>
+          <p>28 curated services with start type and start/stop control, plus autostart entries from the registry and startup folders.</p>
+        </article>
+
+        <article class="card" data-reveal style="--d:.24s">
+          <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"></use></svg></span>
+          <h3>Cleanup &amp; tools</h3>
+          <p>15 cleanup targets with real sizes, a live process monitor and 18 Windows tools — including God Mode.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="modules">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span></span>Modules</p>
+        <h2>Eighteen pages.<br>One app.</h2>
+        <p class="section-sub">Every module is included in the single download. Filter by area to explore the panel.</p>
+      </div>
+
+      <div class="explorer-filters" role="group" aria-label="Filter modules by area" data-reveal>
+        <button class="explorer-filter is-active" type="button" data-filter="all" aria-pressed="true">All <span>18</span></button>
+        <button class="explorer-filter" type="button" data-filter="optimize" aria-pressed="false">Optimize <span>10</span></button>
+        <button class="explorer-filter" type="button" data-filter="system" aria-pressed="false">System <span>4</span></button>
+        <button class="explorer-filter" type="button" data-filter="tools" aria-pressed="false">Tools <span>4</span></button>
+      </div>
+      <p class="visually-hidden" id="moduleCount" aria-live="polite">Showing all 18 modules.</p>
+
+      <div class="explorer-grid" id="moduleGrid">
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">Live</span></div>
+          <h3>Dashboard</h3>
+          <p>Optimization score, system profile, live CPU/RAM, recommendations, activity and quick actions.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">25 tweaks</span></div>
+          <h3>Performance</h3>
+          <p>Visual effects, timeouts, prefetch, SysMain, search, priorities, power plan and NTFS.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">26 tweaks</span></div>
+          <h3>Privacy</h3>
+          <p>Telemetry, ad ID, activity history, location, camera, microphone, Copilot, Recall and ads.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">8 tweaks</span></div>
+          <h3>Gaming</h3>
+          <p>Game Mode, Game Bar/DVR, HAGS, GPU priority, Xbox services and fullscreen optimizations.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">16 tweaks</span></div>
+          <h3>Network</h3>
+          <p>IPv6, LLMNR, QoS, SMBv1, RDP, Nagle, DNS providers, plus flush, renew and reset actions.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">29 tweaks</span></div>
+          <h3>Debloat</h3>
+          <p>Consumer features, suggestions, OneDrive and 25 preinstalled apps — removable per user.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">17 tweaks</span></div>
+          <h3>Appearance</h3>
+          <p>Dark mode, Explorer, taskbar, seconds, Snap Assist, NumLock and mouse settings.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">10 tweaks</span></div>
+          <h3>System</h3>
+          <p>Long paths, developer mode, fast startup, hibernate, UAC desktop and crash dumps.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">13 tweaks</span></div>
+          <h3>Security</h3>
+          <p>Autorun, SmartScreen, WDigest, core isolation, firewall, Defender and SMB signing.</p>
+        </article>
+        <article class="explorer-card" data-category="optimize">
+          <div class="explorer-top"><span class="explorer-cat">Optimize</span><span class="explorer-meta">8 tweaks</span></div>
+          <h3>Windows Update</h3>
+          <p>Driver updates, auto-updates, P2P delivery, restart prompts and cache/reset actions.</p>
+        </article>
+
+        <article class="explorer-card" data-category="system">
+          <div class="explorer-top"><span class="explorer-cat">System</span><span class="explorer-meta">28 services</span></div>
+          <h3>Services</h3>
+          <p>28 curated Windows services, grouped and filtered, with start type and start/stop control.</p>
+        </article>
+        <article class="explorer-card" data-category="system">
+          <div class="explorer-top"><span class="explorer-cat">System</span><span class="explorer-meta">Registry + folder</span></div>
+          <h3>Startup</h3>
+          <p>Registry Run entries and startup-folder items, per user and system, with enable/disable.</p>
+        </article>
+        <article class="explorer-card" data-category="system">
+          <div class="explorer-top"><span class="explorer-cat">System</span><span class="explorer-meta">Live</span></div>
+          <h3>Processes</h3>
+          <p>Live process list with RAM, threads, handles, search, kill and a direct Task Manager link.</p>
+        </article>
+        <article class="explorer-card" data-category="system">
+          <div class="explorer-top"><span class="explorer-cat">System</span><span class="explorer-meta">15 targets</span></div>
+          <h3>Cleanup</h3>
+          <p>Scan 15 targets with real sizes, select what to remove and clean safely — admin hints included.</p>
+        </article>
+
+        <article class="explorer-card" data-category="tools">
+          <div class="explorer-top"><span class="explorer-cat">Tools</span><span class="explorer-meta">6 presets</span></div>
+          <h3>Profiles</h3>
+          <p>Six curated profiles, custom profiles, import/export and a progress view while applying.</p>
+        </article>
+        <article class="explorer-card" data-category="tools">
+          <div class="explorer-top"><span class="explorer-cat">Tools</span><span class="explorer-meta">Every change</span></div>
+          <h3>Backups</h3>
+          <p>JSON history with the previous state, restore individual changes or everything, plus restore points.</p>
+        </article>
+        <article class="explorer-card" data-category="tools">
+          <div class="explorer-top"><span class="explorer-cat">Tools</span><span class="explorer-meta">18 tools</span></div>
+          <h3>Tools</h3>
+          <p>18 Windows tools in one place, including God Mode, system info, network resets and more.</p>
+        </article>
+        <article class="explorer-card" data-category="tools">
+          <div class="explorer-top"><span class="explorer-cat">Tools</span><span class="explorer-meta">5 accents</span></div>
+          <h3>Settings</h3>
+          <p>Five accent colors, animations, confirmations, backup behavior, data folder and activity log.</p>
+        </article>
+      </div>
+
+      <p class="explorer-note">All 18 modules are included in the single download. <a class="link-arrow" href="#download">Download Nexus Optimizer <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></p>
+    </div>
+  </section>
+
+  <section class="section" id="screenshots">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span></span>Screenshots</p>
+        <h2>Built to be used.</h2>
+        <p class="section-sub">Dark, quiet and dense where it matters. These are real screenshots of the app.</p>
+      </div>
+
+      <div class="gallery" data-reveal>
+        <a class="shot-card" href="assets/screenshots/performance.png" target="_blank" rel="noopener">
+          <img src="assets/screenshots/performance.png" alt="Nexus Optimizer performance page with tweak toggles" width="1440" height="900" loading="lazy">
+          <span class="shot-caption">Performance <em>25 tweaks</em></span>
+        </a>
+        <a class="shot-card" href="assets/screenshots/services.png" target="_blank" rel="noopener">
+          <img src="assets/screenshots/services.png" alt="Nexus Optimizer services page" width="1440" height="900" loading="lazy">
+          <span class="shot-caption">Services <em>28 entries</em></span>
+        </a>
+        <a class="shot-card" href="assets/screenshots/cleanup.png" target="_blank" rel="noopener">
+          <img src="assets/screenshots/cleanup.png" alt="Nexus Optimizer cleanup page" width="1440" height="900" loading="lazy">
+          <span class="shot-caption">Cleanup <em>15 targets</em></span>
+        </a>
+        <a class="shot-card" href="assets/screenshots/profiles.png" target="_blank" rel="noopener">
+          <img src="assets/screenshots/profiles.png" alt="Nexus Optimizer profiles page" width="1440" height="900" loading="lazy">
+          <span class="shot-caption">Profiles <em>6 presets</em></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight" id="how-it-works">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow"><span></span>How it works</p>
+        <h2>Three steps. No guesswork.</h2>
+      </div>
+      <div class="steps">
+        <div class="step" data-reveal>
+          <span class="step-num">01</span>
+          <h3>Download &amp; run</h3>
+          <p>Use the installer or the portable EXE. Nexus starts as a standard user; admin rights are requested through UAC only when needed.</p>
+        </div>
+        <div class="step" data-reveal style="--d:.08s">
+          <span class="step-num">02</span>
+          <h3>Set a restore point</h3>
+          <p>Create one from the dashboard. Nexus also writes a JSON backup before every successful change.</p>
+        </div>
+        <div class="step" data-reveal style="--d:.16s">
+          <span class="step-num">03</span>
+          <h3>Pick a profile</h3>
+          <p>Apply a curated profile or toggle individual tweaks. See exactly what changes, then reboot if needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="safety">
+    <div class="container">
+      <div class="bench-layout">
+        <div class="bench-copy" data-reveal>
+          <p class="eyebrow"><span></span>Safety</p>
+          <h2>Powerful by design.<br>Reversible by default.</h2>
+          <p class="section-sub">Nexus edits real Windows settings, so it is built around backups and confirmations. No silent changes, no cloud, no hidden telemetry.</p>
+          <a class="link-arrow" href="#faq">Read the safety FAQ <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </div>
+
+        <div class="module-card safety-card" data-reveal style="--d:.08s">
+          <div class="module-card-head"><span>Before the run</span><span class="pill pill-accent">Built in</span></div>
+          <div class="module-rows">
+            <div class="module-row"><span>JSON backup</span><em>Every change</em></div>
+            <div class="module-row"><span>Risk levels</span><em>Safe / Advanced / Risk</em></div>
+            <div class="module-row"><span>Restore point</span><em>1 click</em></div>
+            <div class="module-row"><span>Admin mode</span><em>UAC restart</em></div>
+            <div class="module-row"><span>Telemetry</span><em>None</em></div>
+          </div>
+          <div class="module-card-foot"><span class="dot-live"></span>All data stays on your PC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-intro" data-reveal>
+          <p class="eyebrow"><span></span>FAQ</p>
+          <h2>Common questions.</h2>
+          <p class="section-sub">Still unsure? Explore every module above — or download it and see for yourself.</p>
+          <a class="link-arrow" href="#download">Download and try it <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </div>
+
+        <div class="faq-list" data-reveal style="--d:.06s">
+          <details class="faq-item" open>
+            <summary><span>Do I need a license?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>Yes. The download is free, but Nexus Optimizer requires a license key before it starts. The owner creates keys and invite codes; register in the customer portal with an invite and your key appears there.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>How do I get a license?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>The owner generates a one-time invite code and, after registration, a license key in the admin panel. There is no self-signup and no automatic checkout.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Which Windows versions are supported?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>Windows 10 from 1903 and Windows 11, 64-bit. .NET Framework 4.8 is required and is included with current Windows 10 and 11 installations.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Do I need administrator rights?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>Some tweaks, services and network changes need elevated rights. Nexus starts as a standard user and offers a UAC restart when needed — it does not silently bypass permissions.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Is the app signed?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>No. The build is unsigned, so Windows SmartScreen may show a warning on first launch. Only run binaries you downloaded from a source you trust.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Can I undo changes?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>Yes. Before every successful change Nexus stores the previous registry or service state as JSON. Restore a single change or all of them, and use Windows restore points as an additional layer.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Does it send data anywhere?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>No. There is no cloud, no telemetry and no external API. Settings, profiles, logs and backups are stored under <code>%LOCALAPPDATA%\NexusOptimizer</code>.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>What is inside the download?</span><i class="faq-icon"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></i></summary>
+            <div class="faq-body"><p>The installer installs Nexus Optimizer per user under <code>%LOCALAPPDATA%\Programs\Nexus Optimizer</code>. The portable EXE runs without installation. The installer creates an Apps &amp; Features entry and an uninstaller.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section" id="download">
+    <div class="container">
+      <div class="cta-card download-card" data-reveal>
+        <div class="cta-glow" aria-hidden="true"></div>
+        <p class="eyebrow center-eyebrow"><span></span>Download</p>
+        <h2>Less bloat starts here.</h2>
+        <p>Nexus Optimizer 1.0.0 for Windows 10 and 11. A license key is required. Install it or run the portable EXE — no subscription, no cloud, no telemetry.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="downloads/NexusOptimizer-Setup.exe" download>
+            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+            Download installer
+          </a>
+          <a class="btn btn-ghost btn-lg" href="downloads/NexusOptimizer.exe" download>
+            Portable EXE
+          </a>
+        </div>
+        <p class="cta-note">License required · Installer 1.3 MB · Portable 0.7 MB · Windows 10/11 x64 · .NET 4.8</p>
+        <p class="download-hash"><span>SHA-256</span><code>8AC6F031212130F1EE47CC444892CD2EF1718BAFF871BEFE711769F4B646DE86</code></p>
+        <p class="download-note">Unsigned build — Windows SmartScreen may warn on first launch.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Nexus Optimizer — home">
+          <img class="brand-mark-img" src="assets/nexus-icon.png" alt="" width="28" height="28">
+          <span class="brand-text">
+            <span class="brand-name">NEXUS</span>
+            <span class="brand-sub">OPTIMIZER</span>
+          </span>
+        </a>
+        <p>A local Windows tweaking panel with real backups. 152 tweaks, 6 profiles and 18 tools. No cloud, no telemetry.</p>
+        <div class="footer-cta">
+          <a class="btn btn-primary btn-sm" href="downloads/NexusOptimizer-Setup.exe" download>
+            <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+            Download for Windows
+          </a>
+          <span>v1.0.0 · 1.3 MB</span>
+        </div>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <h3>Product</h3>
+        <a href="#features">Features</a>
+        <a href="#modules">Modules</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#download">Download</a>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h3>Resources</h3>
+        <a href="#faq">FAQ</a>
+        <a href="#safety">Safety</a>
+        <a href="/login">Login / customer portal</a>
+        <a href="#download">System requirements</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h3>Legal</h3>
+        <a href="impressum.html">Imprint</a>
+        <a href="datenschutz.html">Privacy</a>
+        <a href="datenschutz.html#license">License</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> Nexus Optimizer. All rights reserved.</p>
+      <div class="footer-meta">
+        <span class="status"><span class="dot-live"></span>100% local · no telemetry</span>
+        <div class="socials">
+          <a href="downloads/NexusOptimizer-Setup.exe" download aria-label="Download Nexus Optimizer"><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg></a>
+        </div>
+      </div>
+    </div>
+    <p class="watermark">made by <a href="https://guns.lol/synx123" target="_blank" rel="noopener noreferrer"><b>synx121</b></a></p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
